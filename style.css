@@ -1,0 +1,10 @@
+body {
+    background-color: red;
+}
+
+#clock {
+    width: 10em;
+    height: 10em;
+    background-color: blue;
+    border-radius: 50%
+}
