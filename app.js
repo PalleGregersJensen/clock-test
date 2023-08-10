@@ -28,6 +28,9 @@ function start() {
 function showTime(timeList) {
   document.querySelector("#clock").innerHTML = "";
   for (const object of timeList) {
+    if (object.weekday === "Thu") {
+      object.weekday =  "Thursday"
+    }
     const timeAndDateNow = /*html*/ `${object.date} <br> ${object.weekday} <br> ${object.time}`;
     document.querySelector("#clock").insertAdjacentHTML("beforeend", timeAndDateNow);
   }
