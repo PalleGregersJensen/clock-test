@@ -28,7 +28,7 @@ function start() {
 function showTime(timeList) {
   document.querySelector("#clock").innerHTML = "";
   for (const object of timeList) {
-    const timeAndDateNow = /*html*/ `${object.time} ${object.date} ${object.weekday}`;
+    const timeAndDateNow = /*html*/ `${object.date} <br> ${object.weekday} <br> ${object.time}`;
     document.querySelector("#clock").insertAdjacentHTML("beforeend", timeAndDateNow);
   }
 }
