@@ -6,9 +6,18 @@ window.addEventListener("load", start);
 
 function start() {
   console.log("JS kører");
-  const date = new Date();
+  let date = new Date();
+  date = String(date);
   console.log(date);
-  currentTime.push(date);
+  let weekday = date.slice(0, 3);
+  console.log(weekday);
+  let justDate = date.slice(4, 15);
+  console.log(justDate);
+  let time = date.slice(16, 24);
+  console.log(time);
+  let newDate = createNewDate(weekday, justDate, time)
+  console.log(newDate);
+  currentTime.push(newDate);
   console.log(currentTime);
   showTimeMove();
   showTime(currentTime);
@@ -18,12 +27,22 @@ function start() {
 
 function showTime(timeList) {
   document.querySelector("#clock").innerHTML = "";
-  for (const time of timeList) {
-    const timeAndDateNow = /*html*/ `${time}`;
+  for (const object of timeList) {
+    const timeAndDateNow = /*html*/ `${object.time} ${object.date} ${object.weekday}`;
     document.querySelector("#clock").insertAdjacentHTML("beforeend", timeAndDateNow);
   }
 }
 
 function showTimeMove() {
   const callStartEverySecond = setTimeout(start, 1000);
+}
+
+function createNewDate(weekday, justDate, time) {
+  const newDate = {
+    weekday: weekday,
+    date: justDate,
+    time: time
+  }
+  console.log(newDate);
+  return newDate
 }
